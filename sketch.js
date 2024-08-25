@@ -1,5 +1,3 @@
-// let myFont;
-
 let fps;
 let typingGame;
 
@@ -21,13 +19,12 @@ function setup() {
 
   // JapaneseTypingGameのインスタンスを初期化
   if (this.hiraganaTable && this.questionsTable) {
-    typingGame = new JapaneseTypingGame(this.hiraganaTable, this.questionsTable);
+    // QuestionManagerを先に初期化し、それをJapaneseTypingGameに渡す
+    questionManager = new QuestionManager(this.hiraganaTable, this.questionsTable);
+    typingGame = new JapaneseTypingGame(questionManager);
   } else {
     console.error("テーブルがロードされていないため、ゲームを開始できません。");
   }
-  
-//   myFont = loadFont("assets/MS Gothic.ttf"); // フォントファイルは相対パスで指定
-//   textFont(myFont, 32);
   
   fps = new Fps(60, false);
 }
@@ -56,10 +53,6 @@ function keyPressed() {
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
-
-// function keyReleased() {
-//   typingGame.keyReleased(key);
-// }
 
 function saveHistory() {
   typingGame.saveHistoryToCSV();
