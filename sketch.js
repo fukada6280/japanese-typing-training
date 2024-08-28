@@ -58,6 +58,14 @@ function draw() {
     background(0, 0, 100);
     typingGame.update();
     fps.update();
+
+    textSize(12);
+    textAlign(CENTER, BOTTOM);
+    text(
+        "Ⓒ 2024 https://github.com/fukada6280/japanese-typing-training",
+        width / 2,
+        height - 5
+    );
 }
 
 // キーが押されたら

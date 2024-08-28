@@ -37,17 +37,45 @@ class KeyTimingTracker {
     keyPressed(key, isCorrectInput, endOfSentence) {
         // 現在の入力を完了し、新しい入力を開始するロジック
         // 無視するキーを定義
-        if (
-            keyCode === SHIFT ||
-            keyCode === CONTROL ||
-            keyCode === ALT ||
-            keyCode === ENTER ||
-            keyCode === BACKSPACE ||
-            keyCode === UP_ARROW ||
-            keyCode === DOWN_ARROW ||
-            keyCode === LEFT_ARROW ||
-            keyCode === RIGHT_ARROW
-        ) {
+        const ignoredKeys = [
+            SHIFT,
+            CONTROL,
+            ALT,
+            TAB,
+            DELETE,
+            ENTER,
+            BACKSPACE, // Gameでは無効化されずTrackerでのみ無効
+            UP_ARROW,
+            DOWN_ARROW,
+            LEFT_ARROW,
+            RIGHT_ARROW,
+            ESCAPE,
+            27, // ESCAPE
+            33, // PAGEUP
+            34, // PAGEDOWN
+            36, // HOME
+            35, // END
+            20, // CAPSLOCK
+            112, // F1
+            113, // F2
+            114, // F3
+            115, // F4
+            116, // F5
+            117, // F6
+            118, // F7
+            119, // F8
+            120, // F9
+            121, // F10
+            122, // F11
+            123, // F12
+            45, // INSERT
+            44, // PRINTSCREEN
+            144, // NUMLOCK
+            145, // SCROLLLOCK
+            91, // WINDOWS (左Windowsキー)
+            93, // MENU (メニューキー)
+        ];
+        if (ignoredKeys.includes(keyCode)) {
             return;
         }
 
