@@ -6,7 +6,7 @@ class Fps {
 
     update() {
         if (this.visible) {
-        this.draw();
+            this.draw();
         }
     }
 
@@ -19,7 +19,14 @@ class Fps {
 
         // 現在指し示している座標を表示
         text("mouse=(" + mouseX + ", " + mouseY + ")", width - 5, height - 18);
-        text("reverse_mouse=(" + (width - mouseX) + ", " + (height - mouseY) + ")", width - 5, height - 36);
+        text(
+            "reverse_mouse=(" +
+                (width - mouseX) +
+                ", " +
+                (height - mouseY) +
+                ")",
+            width - 5,
+            height - 36
+        );
     }
-    }
-  
+}
