@@ -58,6 +58,24 @@ class JapaneseTypingGame {
         if (ignoredKeys.includes(keyCode)) {
             return;
         }
+        // SキーでCSVを作成する関数を呼び出す
+        if (
+            key === "S" &&
+            keyIsDown(SHIFT) &&
+            !keyIsDown(CONTROL) &&
+            !keyIsDown(ALT)
+        ) {
+            this.saveHistoryToCSV();
+        }
+        // 大文字キーを無視する
+        if (
+            key >= "A" &&
+            key <= "Z" &&
+            key === key.toUpperCase() &&
+            !keyIsDown(CONTROL)
+        ) {
+            return;
+        }
 
         // 以後 key のみ使用
         if (key === "Backspace") {

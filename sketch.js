@@ -1,3 +1,10 @@
+/*
+ * @author Hiroki FUKADA
+ * 出典: https://github.com/fukada6280/japanese-typing-training
+ *
+ * 追加機能の希望や感想はコメントでお気軽にお願いします！
+ */
+
 let fps;
 let typingGame;
 
@@ -60,12 +67,9 @@ function draw() {
     fps.update();
 
     textSize(12);
+    fill(0, 0, 0, 60);
     textAlign(CENTER, BOTTOM);
-    text(
-        "Ⓒ 2024 https://github.com/fukada6280/japanese-typing-training",
-        width / 2,
-        height - 5
-    );
+    text("S for save input history!", width / 2, height - 5);
 }
 
 // キーが押されたら
