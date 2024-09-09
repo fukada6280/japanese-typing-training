@@ -50,7 +50,6 @@ class KeyEntry {
         translate(positionX, positionY);
 
         // 変数を定義
-        let elapsedTime = this.getElapsedTime();
         let elapsedFrames = this.getElapsedFrames();
         if (elapsedFrames > this.MAX_FRAME) elapsedFrames = this.MAX_FRAME; // 最大値を99と仮定
 

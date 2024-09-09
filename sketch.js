@@ -34,9 +34,7 @@ function setup() {
     colorMode(HSB, 360, 100, 100, 100); // 360, 100, 100で指定
     smooth();
 
-    // JapaneseTypingGameのインスタンスを初期化
     if (this.hiraganaTable && this.questionsTable) {
-        // QuestionManagerを先に初期化し、それをJapaneseTypingGameに渡す
         questionManager = new QuestionManager(
             this.hiraganaTable,
             this.questionsTable
@@ -51,12 +49,10 @@ function setup() {
     fps = new Fps(60, false);
 }
 
-// テーブルのロードが成功したときに呼び出される関数
 function onTableLoadSuccess(table) {
     console.log(`${table} が正常にロードされました。`);
 }
 
-// テーブルのロードが失敗したときに呼び出される関数
 function onTableLoadError(err) {
     console.error("テーブルのロード中にエラーが発生しました: ", err);
 }
@@ -72,7 +68,6 @@ function draw() {
     text("S for save input history!", width / 2, height - 5);
 }
 
-// キーが押されたら
 function keyPressed() {
     typingGame.keyPressed(key, keyCode);
 }
