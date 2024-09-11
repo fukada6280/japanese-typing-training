@@ -64,6 +64,7 @@ function draw() {
 
     textSize(12);
     fill(0, 0, 0, 60);
+    stroke(0, 0, 0, 0);
     textAlign(CENTER, BOTTOM);
     text("S for save input history!", width / 2, height - 5);
 }
@@ -81,4 +82,4 @@ function saveHistory() {
 }
 
 // p5.jsにはexit()関数がないため、ブラウザ終了前に特定の処理を行う場合は、イベントリスナーを使用
-window.addEventListener("beforeunload", saveHistory);
+// window.addEventListener("beforeunload", saveHistory);

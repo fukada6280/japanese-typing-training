@@ -1,6 +1,7 @@
 class JapaneseTypingGame {
     constructor(questionManager) {
         this.questionManager = questionManager;
+        this.currentQuestion;
         this.previousQuestions = [];
         this.userInput = "";
         this.visibleRomaji = false;
@@ -13,8 +14,8 @@ class JapaneseTypingGame {
     }
 
     update() {
-        this.keyTimingTracker.update();
         this.draw();
+        this.keyTimingTracker.update();
     }
 
     keyPressed(key, keyCode) {
@@ -185,6 +186,7 @@ class JapaneseTypingGame {
 
         // 問題文の表示
         fill(0, 0, 0, 100);
+        stroke(0, 0, 0, 0);
         textSize(32);
         text(this.currentQuestion.sentence, positionX, 200);
 

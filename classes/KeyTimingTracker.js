@@ -3,12 +3,12 @@ class KeyTimingTracker {
         this.displaySize = displaySize; // 直近何個の履歴を表示するかのサイズ
         this.keyEntries = []; // 入力履歴を記録するリスト
         this.visible = true;
-        this.startNewEntry(true);
+        this.currentEntry = this.startNewEntry(true);
     }
 
     startNewEntry(prevIsCorrectInput) {
         // 新しい入力を開始するためのメソッド
-        this.currentEntry = new KeyEntry(prevIsCorrectInput);
+        return new KeyEntry(prevIsCorrectInput);
     }
 
     update() {
@@ -49,7 +49,7 @@ class KeyTimingTracker {
         this.keyEntries.push(this.currentEntry);
 
         // 新しい入力を開始
-        this.startNewEntry(isCorrectInput);
+        this.currentEntry = this.startNewEntry(isCorrectInput);
     }
 
     calculateRecentKPM() {

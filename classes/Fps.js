@@ -13,6 +13,7 @@ class Fps {
     draw() {
         // 右下にfpsを表示
         fill(0, 0, 0, 100);
+        stroke(0, 0, 0, 0);
         textSize(12);
         textAlign(RIGHT, BOTTOM);
         text("fps: " + int(frameRate()), width - 5, height);
